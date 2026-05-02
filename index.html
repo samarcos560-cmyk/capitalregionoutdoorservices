@@ -4,110 +4,196 @@
   <meta charset="UTF-8">
   <title>Capital Region Outdoor Services</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
+      font-family: Arial, sans-serif;
       background: #f4f6f4;
       color: #333;
     }
-    header {
-      background: #145a32;
-      color: white;
-      padding: 30px 20px;
+
+    /* HERO */
+    .hero {
+      height: 90vh;
+      background: url('workex2.png') center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      color: white;
     }
-    header h1 {
-      margin: 0;
-      font-size: 28px;
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.55);
     }
-    header p {
-      margin-top: 8px;
-      font-size: 16px;
-    }
-    section {
-      padding: 25px;
+
+    .hero-content {
+      position: relative;
       max-width: 800px;
-      margin: auto;
+      padding: 20px;
     }
-    h2 {
-      color: #145a32;
+
+    .hero h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
     }
-    .card {
-      background: white;
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+    .hero p {
+      font-size: 18px;
+      line-height: 1.5;
     }
+
     .btn {
       display: inline-block;
+      margin-top: 15px;
       background: #145a32;
       color: white;
       padding: 14px 22px;
       text-decoration: none;
       border-radius: 6px;
-      margin-top: 10px;
       font-weight: bold;
     }
+
     .btn:hover {
       background: #0e3d22;
     }
+
+    /* SECTIONS */
+    section {
+      padding: 50px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #145a32;
+      margin-bottom: 15px;
+    }
+
+    /* CARDS */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* GALLERY */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    /* CONTACT */
+    .contact-box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 25px;
       font-size: 14px;
       color: #777;
     }
+
+    img.logo {
+      max-width: 260px;
+      margin-bottom: 15px;
+    }
   </style>
 </head>
+
 <body>
 
-<header>
-  <img src="Logo.png" alt="Capital Region Outdoor Services Logo" style="max-width: 300px; margin-bottom: 10px;">
-  <p>Lawn Care and Junk Removal in Fairfax,VA & Nearby Areas.Dont wait, call or text 571-513-8134 for affordable lawn services TODAY!EASY QUOTE AND SCHEDULING REQUEST IN MINUTES!
-     
-    Call or Text 571-513-8134 for a quote today!
-    Samarcos560@gmail.com</p>
-</header>
-   <h2></h2>
-  <img src="workex2.png" alt="Lawn mowing job"
-    style="width:100%; max-width:200px; border-radius:10px;">
-<img src="workex.png" alt="Lawn mowing job"
-    style="width:100%; max-width:200px; border-radius:10px;">
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <img src="Logo.png" class="logo" alt="Logo">
+    <h1>Capital Region Outdoor Services</h1>
+    <p>Lawn Mowing & Junk Removal in Fairfax, VA and surrounding areas.<br>
+    Fast quotes. Reliable service. Affordable pricing.</p>
+
+    <a class="btn" href="tel:15715138134">Call / Text Now</a>
+  </div>
+</div>
+
+<!-- ABOUT -->
 <section>
   <h2>About Me</h2>
   <p>
-    I'm a recent grad offering dependable lawn mowing services on weekends and evenings during the workweek Monday-Friday and Saturdays.
-    I take pride in clean, professional cuts and showing up to perform well.
-    If you're looking for someone reliable to keep your lawn looking sharp, I'm here to help.
-    Prices Vary by Lawn Size and Work needed,Text me a picture for a quote.
-    Call or Text Me: 571-513-8134 or email me about any questions: samarco560@gmail.com
+    I'm a recent grad offering dependable lawn mowing services on weekends and evenings during the workweek (Monday–Friday) and Saturdays.
+    I take pride in clean, professional cuts and showing up on time.
+    If you're looking for someone reliable to keep your lawn looking sharp or help with junk removal, I'm here to help.
+    <br><br>
+    Pricing varies by lawn size and work needed. Text me a picture for a fast quote.
   </p>
 </section>
 
+<!-- SERVICES -->
 <section>
   <h2>Services</h2>
-  <div class="card">✔ Lawn mowing</div>
-  <div class="card">✔ Edging & trimming</div>
-  <div class="card">✔ Light yard cleanup</div>
+  <div class="services">
+    <div class="card">Lawn Mowing</div>
+    <div class="card">Edging & Trimming</div>
+    <div class="card">Yard Cleanup</div>
+    <div class="card">Junk Removal</div>
+  </div>
 </section>
 
+<!-- WORK EXAMPLES -->
+<section>
+  <h2>Recent Work</h2>
+  <div class="gallery">
+    <img src="workex2.png" alt="Work example 1">
+    <img src="workex.png" alt="Work example 2">
+  </div>
+</section>
+
+<!-- SERVICE AREA -->
 <section>
   <h2>Service Area</h2>
   <p>Fairfax, VA and surrounding areas</p>
 </section>
 
+<!-- CONTACT -->
 <section>
-  <h2>Contact</h2>
-  <p>Call or text for a quick quote:</p>
-  <a class="btn" href="tel:15715138134">Call / Text: 571-513-8134</a>
-  <br><br>
-  <a class="btn" href="sms:15715138134">Send a Message</a>
+  <h2>Get a Free Quote</h2>
+  <div class="contact-box">
+    <p>Call or text for fast pricing and scheduling:</p>
+
+    <a class="btn" href="tel:15715138134">Call / Text: 571-513-8134</a>
+    <br><br>
+    <a class="btn" href="sms:15715138134">Send Text Message</a>
+    <br><br>
+    <p>Email: samarco560@gmail.com</p>
+  </div>
 </section>
 
 <footer>
-  <p>© 2026 Capital Region Outdoor Services</p>
+  © 2026 Capital Region Outdoor Services
 </footer>
 
 </body>
