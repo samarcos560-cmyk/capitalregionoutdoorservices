@@ -9,9 +9,7 @@
  --primary: #0f8a4a;
  --accent: #39e07a;
  --dark: #050505;
- --dark-green: #0a2415;
  --light: #f4f7f4;
- --card: #ffffff;
 }
 html {
  scroll-behavior: smooth;
@@ -31,25 +29,43 @@ body {
  display: flex;
  justify-content: space-between;
  align-items: center;
- padding: 12px 30px;
+ padding: 10px 20px;
  backdrop-filter: blur(8px);
 }
 .nav-logo {
- height: 50px;
+ height: 60px;
+ width: auto;
 }
-.nav-links {
- display: flex;
- gap: 20px;
- flex-wrap: wrap;
+.hamburger {
+ font-size: 32px;
+ color: white;
+ cursor: pointer;
 }
-.nav-links a {
+/* MENU */
+.mobile-menu {
+ display: none;
+ position: absolute;
+ top: 80px;
+ right: 20px;
+ background: var(--dark);
+ width: 220px;
+ border-radius: 12px;
+ overflow: hidden;
+ box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+.mobile-menu a {
+ display: block;
+ padding: 15px;
  color: white;
  text-decoration: none;
  font-weight: bold;
- transition: 0.3s;
+ border-bottom: 1px solid rgba(255,255,255,0.1);
 }
-.nav-links a:hover {
- color: var(--accent);
+.mobile-menu a:hover {
+ background: var(--primary);
+}
+.mobile-menu.show {
+ display: block;
 }
 /* HERO */
 .hero {
@@ -66,10 +82,7 @@ body {
  content: "";
  position: absolute;
  inset: 0;
- background: linear-gradient(
-   rgba(0,0,0,0.75),
-   rgba(10,36,21,0.65)
- );
+ background: linear-gradient(rgba(0,0,0,0.75), rgba(10,36,21,0.65));
 }
 .hero-content {
  position: relative;
@@ -82,12 +95,12 @@ body {
 .hero p {
  font-size: 18px;
 }
-/* MAIN LOGO */
+/* HERO LOGO */
 img.logo {
- max-width: 260px;
+ max-width: 220px;
  margin-bottom: 10px;
 }
-/* BUTTONS */
+/* BUTTON */
 .btn {
  display: inline-block;
  margin-top: 15px;
@@ -129,7 +142,7 @@ h2 {
 /* GALLERY */
 .gallery {
  display: grid;
- grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+ grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
  gap: 12px;
 }
 .gallery img,
@@ -140,7 +153,7 @@ h2 {
 /* BEFORE AFTER */
 .before-after {
  display: grid;
- grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+ grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
  gap: 20px;
 }
 .ba-card {
@@ -156,7 +169,7 @@ h2 {
  border-radius: 12px;
  text-align: center;
 }
-/* FLOATING BUTTON */
+/* FLOATING CALL */
 .floating-call {
  position: fixed;
  bottom: 20px;
@@ -167,6 +180,7 @@ h2 {
  border-radius: 50px;
  text-decoration: none;
  font-weight: bold;
+ z-index: 999;
 }
 /* FOOTER */
 footer {
@@ -175,15 +189,8 @@ footer {
  background: var(--dark);
  color: white;
 }
-/* MOBILE NAV */
+/* MOBILE */
 @media (max-width: 768px) {
- .navbar {
-   flex-direction: column;
-   gap: 10px;
- }
- .nav-links {
-   justify-content: center;
- }
  .hero h1 {
    font-size: 32px;
  }
@@ -194,10 +201,12 @@ footer {
 <!-- NAVBAR -->
 <nav class="navbar">
 <img src="Logo.png" class="nav-logo" alt="Logo">
-<div class="nav-links">
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+<div class="mobile-menu" id="mobileMenu">
 <a href="#about">Why Choose Us</a>
 <a href="#services">Services</a>
 <a href="#work">Work</a>
+<a href="#beforeafter">Before & After</a>
 <a href="#reviews">Reviews</a>
 <a href="#contact">Contact</a>
 </div>
@@ -208,8 +217,8 @@ footer {
 <img src="Logo.png" class="logo" alt="Logo">
 <h1>Capital Region Outdoor Services</h1>
 <p>
-     Lawn Mowing & Junk Removal in Fairfax, VA <br>
-     Same-day quotes • Weekend availability • Reliable service
+     Lawn Mowing & Junk Removal in Fairfax, VA<br>
+     Same-day quotes • Reliable service • Affordable pricing
 </p>
 <a class="btn" href="tel:15715138134">Call / Text Now</a>
 </div>
@@ -217,8 +226,8 @@ footer {
 <section id="about">
 <h2>Why Choose Us</h2>
 <p>
-   Reliable lawn care and junk removal with affordable pricing,
-   flexible scheduling, and quality work every time.
+   Reliable, affordable lawn care and junk removal with clean work,
+   fast response times, and flexible scheduling.
 </p>
 </section>
 <section id="services">
@@ -237,8 +246,8 @@ footer {
 <img src="workex.png">
 </div>
 </section>
-<section>
-<h2>Before & After Transformation</h2>
+<section id="beforeafter">
+<h2>Before & After</h2>
 <div class="before-after">
 <div class="ba-card">
 <h3>Before</h3>
@@ -253,23 +262,35 @@ footer {
 <section id="reviews">
 <h2>Customer Reviews</h2>
 <div class="services">
-<div class="card">"Great communication and professional work." ⭐⭐⭐⭐⭐</div>
-<div class="card">"Affordable pricing and showed up on time." ⭐⭐⭐⭐⭐</div>
-<div class="card">"Amazing transformation." ⭐⭐⭐⭐⭐</div>
+<div class="card">"Great communication and quality work." ⭐⭐⭐⭐⭐</div>
+<div class="card">"Affordable and on time." ⭐⭐⭐⭐⭐</div>
+<div class="card">"Huge difference in my yard." ⭐⭐⭐⭐⭐</div>
 </div>
 </section>
 <section id="contact">
 <h2>Get a Free Quote</h2>
 <div class="contact-box">
-<a class="btn" href="tel:15715138134">Call/Text: 571-513-8134</a>
+<a class="btn" href="tel:15715138134">Call/Text Now</a>
 <br><br>
-<a class="btn" href="sms:15715138134">Send Text Message</a>
+<a class="btn" href="sms:15715138134">Send Text</a>
 <p><strong>Email:</strong> samarco560@gmail.com</p>
 </div>
 </section>
+<!-- FLOATING BUTTON -->
 <a class="floating-call" href="tel:15715138134">
 📞 Call Now
 </a>
+<!-- SCRIPT -->
+<script>
+function toggleMenu() {
+ document.getElementById("mobileMenu").classList.toggle("show");
+}
+document.querySelectorAll(".mobile-menu a").forEach(link => {
+ link.addEventListener("click", () => {
+   document.getElementById("mobileMenu").classList.remove("show");
+ });
+});
+</script>
 <footer>
 © 2026 Capital Region Outdoor Services
 </footer>
