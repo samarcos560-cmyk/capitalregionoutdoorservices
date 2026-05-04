@@ -13,11 +13,43 @@
  --light: #f4f7f4;
  --card: #ffffff;
 }
+html {
+ scroll-behavior: smooth;
+}
 body {
  margin: 0;
  font-family: Arial, sans-serif;
  background: var(--light);
  color: #222;
+}
+/* NAVBAR */
+.navbar {
+ position: sticky;
+ top: 0;
+ z-index: 1000;
+ background: rgba(5,5,5,0.95);
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 12px 30px;
+ backdrop-filter: blur(8px);
+}
+.nav-logo {
+ height: 50px;
+}
+.nav-links {
+ display: flex;
+ gap: 20px;
+ flex-wrap: wrap;
+}
+.nav-links a {
+ color: white;
+ text-decoration: none;
+ font-weight: bold;
+ transition: 0.3s;
+}
+.nav-links a:hover {
+ color: var(--accent);
 }
 /* HERO */
 .hero {
@@ -46,18 +78,14 @@ body {
 }
 .hero h1 {
  font-size: 44px;
- margin-bottom: 10px;
- text-shadow: 0 2px 10px rgba(0,0,0,0.4);
 }
 .hero p {
  font-size: 18px;
- opacity: 0.95;
 }
-/* LOGO */
+/* MAIN LOGO */
 img.logo {
  max-width: 260px;
  margin-bottom: 10px;
- filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
 }
 /* BUTTONS */
 .btn {
@@ -69,12 +97,6 @@ img.logo {
  text-decoration: none;
  border-radius: 8px;
  font-weight: bold;
- transition: 0.3s;
- box-shadow: 0 6px 18px rgba(57,224,122,0.4);
-}
-.btn:hover {
- background: white;
- transform: translateY(-3px);
 }
 /* SECTIONS */
 section {
@@ -90,22 +112,11 @@ section:nth-of-type(odd) {
 }
 h2 {
  color: var(--primary);
- font-size: 28px;
- margin-bottom: 20px;
-}
-h2::after {
- content: "";
- width: 60px;
- height: 4px;
- background: var(--accent);
- display: block;
- margin-top: 8px;
- border-radius: 2px;
 }
 /* SERVICES */
 .services {
  display: grid;
- grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+ grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
  gap: 18px;
 }
 .card {
@@ -114,55 +125,38 @@ h2::after {
  border-radius: 14px;
  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
  text-align: center;
- font-weight: bold;
- border-top: 5px solid var(--accent);
- transition: 0.3s ease;
-}
-.card:hover {
- transform: translateY(-8px);
- box-shadow: 0 14px 30px rgba(0,0,0,0.15);
 }
 /* GALLERY */
 .gallery {
  display: grid;
- grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+ grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
  gap: 12px;
 }
-.gallery img {
+.gallery img,
+.ba-card img {
  width: 100%;
  border-radius: 12px;
- box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
 /* BEFORE AFTER */
 .before-after {
  display: grid;
- grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
  gap: 20px;
 }
 .ba-card {
  background: white;
  padding: 20px;
  border-radius: 14px;
- box-shadow: 0 8px 20px rgba(0,0,0,0.1);
  text-align: center;
-}
-.ba-card h3 {
- color: var(--primary);
-}
-.ba-card img {
- width: 100%;
- border-radius: 12px;
 }
 /* CONTACT */
 .contact-box {
  background: white;
  padding: 25px;
  border-radius: 12px;
- box-shadow: 0 6px 18px rgba(0,0,0,0.1);
  text-align: center;
- border-left: 6px solid var(--accent);
 }
-/* FLOATING CALL BUTTON */
+/* FLOATING BUTTON */
 .floating-call {
  position: fixed;
  bottom: 20px;
@@ -173,29 +167,41 @@ h2::after {
  border-radius: 50px;
  text-decoration: none;
  font-weight: bold;
- box-shadow: 0 8px 20px rgba(0,0,0,0.25);
- z-index: 999;
 }
 /* FOOTER */
 footer {
  text-align: center;
  padding: 30px;
- font-size: 14px;
  background: var(--dark);
  color: white;
 }
-/* MOBILE */
+/* MOBILE NAV */
 @media (max-width: 768px) {
+ .navbar {
+   flex-direction: column;
+   gap: 10px;
+ }
+ .nav-links {
+   justify-content: center;
+ }
  .hero h1 {
    font-size: 32px;
- }
- .hero p {
-   font-size: 16px;
  }
 }
 </style>
 </head>
 <body>
+<!-- NAVBAR -->
+<nav class="navbar">
+<img src="Logo.png" class="nav-logo" alt="Logo">
+<div class="nav-links">
+<a href="#about">Why Choose Us</a>
+<a href="#services">Services</a>
+<a href="#work">Work</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
 <!-- HERO -->
 <div class="hero">
 <div class="hero-content">
@@ -208,19 +214,14 @@ footer {
 <a class="btn" href="tel:15715138134">Call / Text Now</a>
 </div>
 </div>
-<!-- ABOUT -->
-<section>
+<section id="about">
 <h2>Why Choose Us</h2>
 <p>
-   I'm a recent grad offering dependable lawn mowing services on weekends
-   and evenings during the workweek. I take pride in clean, professional cuts,
-   showing up on time, and affordable pricing.
-   I also offer junk removal for small to medium jobs — just send a photo
-   for a fast quote.
+   Reliable lawn care and junk removal with affordable pricing,
+   flexible scheduling, and quality work every time.
 </p>
 </section>
-<!-- SERVICES -->
-<section>
+<section id="services">
 <h2>Services</h2>
 <div class="services">
 <div class="card">🌱 Lawn Mowing</div>
@@ -229,66 +230,48 @@ footer {
 <div class="card">🗑️ Junk Removal</div>
 </div>
 </section>
-<!-- RECENT WORK -->
-<section>
+<section id="work">
 <h2>Recent Work</h2>
 <div class="gallery">
-<img src="workex2.png" alt="Work Example 1">
-<img src="workex.png" alt="Work Example 2">
+<img src="workex2.png">
+<img src="workex.png">
 </div>
 </section>
-<!-- BEFORE AFTER -->
 <section>
 <h2>Before & After Transformation</h2>
 <div class="before-after">
 <div class="ba-card">
 <h3>Before</h3>
-<img src="workex4.png" alt="Before cleanup">
+<img src="workex4.png">
 </div>
 <div class="ba-card">
 <h3>After</h3>
-<img src="workex3.png" alt="After cleanup">
+<img src="workex3.png">
 </div>
 </div>
 </section>
-<!-- REVIEWS -->
-<section>
+<section id="reviews">
 <h2>Customer Reviews</h2>
 <div class="services">
-<div class="card">
-     "Great communication and very professional work." ⭐⭐⭐⭐⭐
-</div>
-<div class="card">
-     "Affordable pricing and showed up on time." ⭐⭐⭐⭐⭐
-</div>
-<div class="card">
-     "My yard looked completely different after they finished." ⭐⭐⭐⭐⭐
-</div>
+<div class="card">"Great communication and professional work." ⭐⭐⭐⭐⭐</div>
+<div class="card">"Affordable pricing and showed up on time." ⭐⭐⭐⭐⭐</div>
+<div class="card">"Amazing transformation." ⭐⭐⭐⭐⭐</div>
 </div>
 </section>
-<!-- SERVICE AREA -->
-<section>
-<h2>Service Area</h2>
-<p>Fairfax, VA and surrounding areas</p>
-</section>
-<!-- CONTACT -->
-<section>
+<section id="contact">
 <h2>Get a Free Quote</h2>
 <div class="contact-box">
-<p>Fast response — call or text anytime:</p>
-<a class="btn" href="tel:15715138134">Call / Text: 571-513-8134</a>
+<a class="btn" href="tel:15715138134">Call/Text: 571-513-8134</a>
 <br><br>
 <a class="btn" href="sms:15715138134">Send Text Message</a>
-<br><br>
 <p><strong>Email:</strong> samarco560@gmail.com</p>
 </div>
 </section>
-<!-- FLOATING CALL BUTTON -->
 <a class="floating-call" href="tel:15715138134">
- 📞 Call Now
+📞 Call Now
 </a>
 <footer>
- © 2026 Capital Region Outdoor Services
+© 2026 Capital Region Outdoor Services
 </footer>
 </body>
 </html>
