@@ -34,7 +34,6 @@ body {
 }
 .nav-logo {
  height: 60px;
- width: auto;
 }
 .hamburger {
  font-size: 32px;
@@ -51,7 +50,6 @@ body {
  width: 220px;
  border-radius: 12px;
  overflow: hidden;
- box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 .mobile-menu a {
  display: block;
@@ -95,10 +93,8 @@ body {
 .hero p {
  font-size: 18px;
 }
-/* HERO LOGO */
 img.logo {
  max-width: 220px;
- margin-bottom: 10px;
 }
 /* BUTTON */
 .btn {
@@ -129,31 +125,20 @@ h2 {
 /* SERVICES */
 .services {
  display: grid;
- grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+ grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
  gap: 18px;
 }
 .card {
  background: white;
  padding: 25px;
  border-radius: 14px;
- box-shadow: 0 10px 25px rgba(0,0,0,0.08);
  text-align: center;
-}
-/* GALLERY */
-.gallery {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
- gap: 12px;
-}
-.gallery img,
-.ba-card img {
- width: 100%;
- border-radius: 12px;
+ box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 /* BEFORE AFTER */
 .before-after {
  display: grid;
- grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+ grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
  gap: 20px;
 }
 .ba-card {
@@ -162,14 +147,37 @@ h2 {
  border-radius: 14px;
  text-align: center;
 }
-/* CONTACT */
-.contact-box {
+.ba-card img {
+ width: 100%;
+ border-radius: 12px;
+}
+/* BOOKING FORM */
+.form-box {
  background: white;
  padding: 25px;
- border-radius: 12px;
- text-align: center;
+ border-radius: 14px;
+ box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
-/* FLOATING CALL */
+.form-box input,
+.form-box textarea,
+.form-box select {
+ width: 100%;
+ padding: 12px;
+ margin-top: 10px;
+ margin-bottom: 15px;
+ border-radius: 8px;
+ border: 1px solid #ccc;
+}
+.form-box button {
+ width: 100%;
+ padding: 14px;
+ background: var(--accent);
+ border: none;
+ font-weight: bold;
+ cursor: pointer;
+ border-radius: 8px;
+}
+/* FLOATING BUTTON */
 .floating-call {
  position: fixed;
  bottom: 20px;
@@ -180,7 +188,6 @@ h2 {
  border-radius: 50px;
  text-decoration: none;
  font-weight: bold;
- z-index: 999;
 }
 /* FOOTER */
 footer {
@@ -189,47 +196,45 @@ footer {
  background: var(--dark);
  color: white;
 }
-/* MOBILE */
-@media (max-width: 768px) {
- .hero h1 {
-   font-size: 32px;
- }
-}
 </style>
 </head>
 <body>
 <!-- NAVBAR -->
 <nav class="navbar">
-<img src="Logo.png" class="nav-logo" alt="Logo">
+<img src="Logo.png" class="nav-logo">
 <div class="hamburger" onclick="toggleMenu()">☰</div>
 <div class="mobile-menu" id="mobileMenu">
 <a href="#about">Why Choose Us</a>
 <a href="#services">Services</a>
 <a href="#work">Work</a>
 <a href="#beforeafter">Before & After</a>
-<a href="#reviews">Reviews</a>
+<a href="#booking">Book Service</a>
 <a href="#contact">Contact</a>
 </div>
 </nav>
 <!-- HERO -->
 <div class="hero">
 <div class="hero-content">
-<img src="Logo.png" class="logo" alt="Logo">
+<img src="Logo.png" class="logo">
 <h1>Capital Region Outdoor Services</h1>
 <p>
      Lawn Mowing & Junk Removal in Fairfax, VA<br>
-     Same-day quotes • Reliable service • Affordable pricing
+     Reliable • Affordable • Fast Quotes
 </p>
-<a class="btn" href="tel:15715138134">Call / Text Now</a>
+<a class="btn" href="#booking">Book Now</a>
 </div>
 </div>
+<!-- WHY LAWNS MATTER (PERSUASION) -->
 <section id="about">
-<h2>Why Choose Us</h2>
+<h2>Why Lawn Care Matters</h2>
 <p>
-   Reliable, affordable lawn care and junk removal with clean work,
-   fast response times, and flexible scheduling.
+   A well-maintained lawn does more than look good — it protects your home value, prevents overgrowth damage,
+   and keeps pests and weeds under control. Neglected yards can quickly become expensive problems,
+   while consistent maintenance keeps everything healthy, clean, and safe.
+   Investing in regular lawn care is one of the easiest ways to instantly improve curb appeal and property value.
 </p>
 </section>
+<!-- SERVICES -->
 <section id="services">
 <h2>Services</h2>
 <div class="services">
@@ -239,13 +244,14 @@ footer {
 <div class="card">🗑️ Junk Removal</div>
 </div>
 </section>
+<!-- WORK -->
 <section id="work">
 <h2>Recent Work</h2>
-<div class="gallery">
-<img src="workex2.png">
-<img src="workex.png">
+<div class="services">
+<div class="card">Before / After transformations shown below</div>
 </div>
 </section>
+<!-- BEFORE AFTER -->
 <section id="beforeafter">
 <h2>Before & After</h2>
 <div class="before-after">
@@ -259,24 +265,32 @@ footer {
 </div>
 </div>
 </section>
-<section id="reviews">
-<h2>Customer Reviews</h2>
-<div class="services">
-<div class="card">"Great communication and quality work." ⭐⭐⭐⭐⭐</div>
-<div class="card">"Affordable and on time." ⭐⭐⭐⭐⭐</div>
-<div class="card">"Huge difference in my yard." ⭐⭐⭐⭐⭐</div>
+<!-- BOOKING FORM -->
+<section id="booking">
+<h2>Book a Service</h2>
+<div class="form-box">
+<form action="mailto:samarco560@gmail.com" method="POST" enctype="text/plain">
+<input type="text" name="Name" placeholder="Your Name" required>
+<input type="tel" name="Phone" placeholder="Phone Number" required>
+<input type="text" name="Address" placeholder="Address / Location" required>
+<select name="Service">
+<option>Lawn Mowing</option>
+<option>Edging & Trimming</option>
+<option>Yard Cleanup</option>
+<option>Junk Removal</option>
+</select>
+<textarea name="Details" rows="5" placeholder="Describe the job..." required></textarea>
+<button type="submit">Send Booking Request</button>
+</form>
 </div>
 </section>
+<!-- CONTACT -->
 <section id="contact">
-<h2>Get a Free Quote</h2>
-<div class="contact-box">
-<a class="btn" href="tel:15715138134">Call/Text Now</a>
-<br><br>
-<a class="btn" href="sms:15715138134">Send Text</a>
-<p><strong>Email:</strong> samarco560@gmail.com</p>
-</div>
+<h2>Contact</h2>
+<p>Email: samarco560@gmail.com</p>
+<a class="btn" href="tel:15715138134">Call / Text</a>
 </section>
-<!-- FLOATING BUTTON -->
+<!-- FLOATING CALL -->
 <a class="floating-call" href="tel:15715138134">
 📞 Call Now
 </a>
