@@ -135,6 +135,17 @@ h2 {
  text-align: center;
  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
+/* GALLERY */
+.gallery {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+ gap: 12px;
+}
+.gallery img,
+.ba-card img {
+ width: 100%;
+ border-radius: 12px;
+}
 /* BEFORE AFTER */
 .before-after {
  display: grid;
@@ -146,10 +157,6 @@ h2 {
  padding: 20px;
  border-radius: 14px;
  text-align: center;
-}
-.ba-card img {
- width: 100%;
- border-radius: 12px;
 }
 /* BOOKING FORM */
 .form-box {
@@ -224,14 +231,13 @@ footer {
 <a class="btn" href="#booking">Book Now</a>
 </div>
 </div>
-<!-- WHY LAWNS MATTER (PERSUASION) -->
+<!-- WHY LAWNS MATTER -->
 <section id="about">
 <h2>Why Lawn Care Matters</h2>
 <p>
-   A well-maintained lawn does more than look good — it protects your home value, prevents overgrowth damage,
-   and keeps pests and weeds under control. Neglected yards can quickly become expensive problems,
-   while consistent maintenance keeps everything healthy, clean, and safe.
-   Investing in regular lawn care is one of the easiest ways to instantly improve curb appeal and property value.
+   A well-maintained lawn protects your property value, prevents overgrowth damage,
+   and keeps pests and weeds under control. Regular maintenance keeps your yard clean,
+   safe, and looking its best year-round.
 </p>
 </section>
 <!-- SERVICES -->
@@ -244,11 +250,12 @@ footer {
 <div class="card">🗑️ Junk Removal</div>
 </div>
 </section>
-<!-- WORK -->
+<!-- UPDATED RECENT WORK -->
 <section id="work">
 <h2>Recent Work</h2>
-<div class="services">
-<div class="card">Before / After transformations shown below</div>
+<div class="gallery">
+<img src="workex.png" alt="Work Example 1">
+<img src="workex2.png" alt="Work Example 2">
 </div>
 </section>
 <!-- BEFORE AFTER -->
@@ -265,14 +272,14 @@ footer {
 </div>
 </div>
 </section>
-<!-- BOOKING FORM -->
+<!-- BOOKING -->
 <section id="booking">
 <h2>Book a Service</h2>
 <div class="form-box">
 <form action="mailto:samarco560@gmail.com" method="POST" enctype="text/plain">
 <input type="text" name="Name" placeholder="Your Name" required>
 <input type="tel" name="Phone" placeholder="Phone Number" required>
-<input type="text" name="Address" placeholder="Address / Location" required>
+<input type="text" name="Address" placeholder="Address" required>
 <select name="Service">
 <option>Lawn Mowing</option>
 <option>Edging & Trimming</option>
@@ -290,11 +297,7 @@ footer {
 <p>Email: samarco560@gmail.com</p>
 <a class="btn" href="tel:15715138134">Call / Text</a>
 </section>
-<!-- FLOATING CALL -->
-<a class="floating-call" href="tel:15715138134">
-📞 Call Now
-</a>
-<!-- SCRIPT -->
+<a class="floating-call" href="tel:15715138134">📞 Call Now</a>
 <script>
 function toggleMenu() {
  document.getElementById("mobileMenu").classList.toggle("show");
