@@ -37,6 +37,7 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 padding: 10px 20px;
+box-shadow: 0 0 14px rgba(57,224,122,0.12);
 }
 
 .nav-left {
@@ -45,7 +46,10 @@ align-items: center;
 gap: 16px;
 }
 
-.nav-logo { height: 58px; }
+.nav-logo {
+height: 58px;
+filter: drop-shadow(0 0 12px rgba(57,224,122,0.55));
+}
 
 /* PIN */
 .pin {
@@ -55,7 +59,7 @@ background: var(--accent);
 border-radius: 50% 50% 50% 0;
 position: relative;
 transform: rotate(-45deg);
-box-shadow: 0 0 10px rgba(57,224,122,0.7);
+box-shadow: 0 0 12px rgba(57,224,122,0.75);
 }
 
 .pin::after {
@@ -75,12 +79,14 @@ align-items: center;
 gap: 8px;
 color: white;
 font-weight: bold;
+text-shadow: 0 0 6px rgba(57,224,122,0.28);
 }
 
 .hamburger {
 font-size: 32px;
 color: white;
 cursor: pointer;
+text-shadow: 0 0 8px rgba(57,224,122,0.3);
 }
 
 /* MENU */
@@ -93,6 +99,8 @@ background: var(--dark);
 width: 220px;
 border-radius: 12px;
 transition: all 0.3s ease;
+border: 1px solid rgba(57,224,122,0.35);
+box-shadow: 0 0 18px rgba(57,224,122,0.18);
 }
 
 .mobile-menu a {
@@ -148,13 +156,17 @@ padding: 0 20px;
 
 img.logo {
 max-width: 220px;
-filter: drop-shadow(0 0 18px rgba(57,224,122,0.35));
+filter:
+drop-shadow(0 0 18px rgba(57,224,122,0.38))
+drop-shadow(0 0 26px rgba(57,224,122,0.18));
 }
 
 .hero h1 {
 font-size: 46px;
 margin-bottom: 10px;
-text-shadow: 0 4px 12px rgba(0,0,0,0.45);
+text-shadow:
+0 4px 12px rgba(0,0,0,0.45),
+0 0 8px rgba(57,224,122,0.18);
 }
 
 .hero h2 {
@@ -164,7 +176,9 @@ margin-top: 0;
 margin-bottom: 18px;
 font-weight: bold;
 letter-spacing: 1px;
-text-shadow: 0 2px 10px rgba(0,0,0,0.45);
+text-shadow:
+0 2px 10px rgba(0,0,0,0.45),
+0 0 8px rgba(57,224,122,0.14);
 }
 
 .hero p {
@@ -183,6 +197,7 @@ padding: 14px 24px;
 border-radius: 8px;
 font-weight: bold;
 text-decoration: none;
+box-shadow: 0 0 14px rgba(57,224,122,0.3);
 }
 
 /* SECTIONS */
@@ -195,7 +210,10 @@ margin: auto;
 section:nth-of-type(even) { background: var(--alt-bg); }
 section:nth-of-type(odd) { background: var(--light); }
 
-h2 { color: var(--primary); }
+h2 {
+color: var(--primary);
+text-shadow: 0 0 7px rgba(57,224,122,0.2);
+}
 
 /* CARDS */
 .services {
@@ -209,7 +227,9 @@ background: white;
 padding: 25px;
 border-radius: 14px;
 text-align: center;
-box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+box-shadow:
+0 10px 25px rgba(0,0,0,0.1),
+0 0 14px rgba(57,224,122,0.14);
 border-top: 4px solid var(--accent);
 }
 
@@ -225,12 +245,14 @@ gap: 12px;
 .map-img {
 width: 100%;
 border-radius: 12px;
+box-shadow:
+0 10px 25px rgba(0,0,0,0.15),
+0 0 14px rgba(57,224,122,0.16);
 }
 
 /* SERVICE AREA IMAGE */
 .map-img {
 margin-top: 20px;
-box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 /* BEFORE AFTER */
@@ -245,6 +267,9 @@ background: white;
 padding: 20px;
 border-radius: 14px;
 text-align: center;
+box-shadow:
+0 10px 25px rgba(0,0,0,0.08),
+0 0 14px rgba(57,224,122,0.12);
 }
 
 /* FORM */
@@ -252,6 +277,9 @@ text-align: center;
 background: white;
 padding: 25px;
 border-radius: 14px;
+box-shadow:
+0 10px 25px rgba(0,0,0,0.08),
+0 0 14px rgba(57,224,122,0.12);
 }
 
 .form-box input,
@@ -263,6 +291,15 @@ margin-bottom: 15px;
 border-radius: 8px;
 border: 1px solid #ccc;
 box-sizing: border-box;
+transition: all 0.25s ease;
+}
+
+.form-box input:focus,
+.form-box textarea:focus,
+.form-box select:focus {
+outline: none;
+border-color: var(--accent);
+box-shadow: 0 0 10px rgba(57,224,122,0.28);
 }
 
 .form-box button {
@@ -273,6 +310,7 @@ padding: 14px 24px;
 border-radius: 8px;
 font-weight: bold;
 cursor: pointer;
+box-shadow: 0 0 14px rgba(57,224,122,0.3);
 }
 
 /* FLOATING */
@@ -286,6 +324,9 @@ padding: 15px 22px;
 border-radius: 50px;
 text-decoration: none;
 font-weight: bold;
+box-shadow:
+0 0 16px rgba(57,224,122,0.42),
+0 0 22px rgba(57,224,122,0.16);
 }
 
 /* HOVER EFFECTS */
@@ -293,36 +334,47 @@ font-weight: bold;
 .gallery img,
 .btn,
 .floating-call,
-.form-box button {
+.form-box button,
+.ba-card,
+.map-img {
 transition: all 0.25s ease;
 }
 
-.card:hover {
+.card:hover,
+.ba-card:hover {
 transform: translateY(-6px);
-box-shadow: 0 14px 30px rgba(0,0,0,0.16);
+box-shadow:
+0 14px 30px rgba(0,0,0,0.16),
+0 0 22px rgba(57,224,122,0.28);
 }
 
-.gallery img:hover {
+.gallery img:hover,
+.map-img:hover {
 transform: scale(1.02);
+box-shadow:
+0 14px 30px rgba(0,0,0,0.18),
+0 0 22px rgba(57,224,122,0.26);
 }
 
 .btn:hover,
 .floating-call:hover,
 .form-box button:hover {
 transform: translateY(-3px);
-box-shadow: 0 10px 22px rgba(57,224,122,0.35);
+box-shadow:
+0 10px 22px rgba(57,224,122,0.36),
+0 0 22px rgba(57,224,122,0.2);
 }
 
 /* ANIMATION */
 @keyframes fadeUp {
 from {
-  opacity: 0;
-  transform: translateY(20px);
+opacity: 0;
+transform: translateY(20px);
 }
 
 to {
-  opacity: 1;
-  transform: translateY(0);
+opacity: 1;
+transform: translateY(0);
 }
 }
 
@@ -332,24 +384,25 @@ text-align: center;
 padding: 30px;
 background: black;
 color: white;
+box-shadow: 0 -4px 16px rgba(57,224,122,0.1);
 }
 
 /* MOBILE */
 @media (max-width: 700px) {
 .hero h1 {
-  font-size: 34px;
+font-size: 34px;
 }
 
 .hero h2 {
-  font-size: 20px;
+font-size: 20px;
 }
 
 .location {
-  font-size: 13px;
+font-size: 13px;
 }
 
 .nav-logo {
-  height: 48px;
+height: 48px;
 }
 }
 </style>
@@ -415,8 +468,8 @@ Manassas and Fairfax, VA
 <section id="work">
 <h2>Recent Work</h2>
 <div class="gallery">
-<img src="workex.png">
-<img src="workex2.png">
+<img src="workex.png" alt="Recent lawn work example">
+<img src="workex2.png" alt="Recent outdoor service work example">
 </div>
 </section>
 
@@ -425,11 +478,11 @@ Manassas and Fairfax, VA
 <div class="before-after">
 <div class="ba-card">
 <h3>Before</h3>
-<img src="workex4.png">
+<img src="workex4.png" alt="Before lawn cleanup">
 </div>
 <div class="ba-card">
 <h3>After</h3>
-<img src="workex3.png">
+<img src="workex3.png" alt="After lawn cleanup">
 </div>
 </div>
 </section>
