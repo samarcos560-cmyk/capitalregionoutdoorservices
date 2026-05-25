@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +19,9 @@
 --alt-bg: #e9f3ec;
 }
 
-html { scroll-behavior: smooth; }
+html {
+scroll-behavior: smooth;
+}
 
 body {
 margin: 0;
@@ -116,7 +119,9 @@ background: var(--accent);
 color: black;
 }
 
-.mobile-menu.show { display: block; }
+.mobile-menu.show {
+display: block;
+}
 
 /* HERO */
 .hero {
@@ -161,12 +166,60 @@ drop-shadow(0 0 18px rgba(57,224,122,0.38))
 drop-shadow(0 0 26px rgba(57,224,122,0.18));
 }
 
+/* COMPANY NAME */
 .hero h1 {
-font-size: 46px;
-margin-bottom: 10px;
+font-size: 58px;
+font-weight: 900;
+line-height: 1;
+letter-spacing: 1.5px;
+margin-bottom: 14px;
+
+background: linear-gradient(
+to bottom,
+#ffffff 0%,
+#f3fff7 35%,
+#9dffbf 100%
+);
+
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
 text-shadow:
-0 4px 12px rgba(0,0,0,0.45),
-0 0 8px rgba(57,224,122,0.18);
+0 0 8px rgba(57,224,122,0.28),
+0 0 22px rgba(57,224,122,0.16),
+0 4px 14px rgba(0,0,0,0.45);
+}
+
+.hero h1 span {
+display: block;
+font-size: 0.82em;
+letter-spacing: 3px;
+color: #39e07a;
+
+-webkit-text-fill-color: #39e07a;
+
+text-shadow:
+0 0 10px rgba(57,224,122,0.45),
+0 0 22px rgba(57,224,122,0.2);
+}
+
+/* TITLE LINE */
+.title-line {
+width: 140px;
+height: 4px;
+margin: 0 auto 20px auto;
+border-radius: 50px;
+
+background: linear-gradient(
+to right,
+transparent,
+#39e07a,
+transparent
+);
+
+box-shadow:
+0 0 10px rgba(57,224,122,0.4),
+0 0 18px rgba(57,224,122,0.22);
 }
 
 .hero h2 {
@@ -207,8 +260,13 @@ max-width: 1000px;
 margin: auto;
 }
 
-section:nth-of-type(even) { background: var(--alt-bg); }
-section:nth-of-type(odd) { background: var(--light); }
+section:nth-of-type(even) {
+background: var(--alt-bg);
+}
+
+section:nth-of-type(odd) {
+background: var(--light);
+}
 
 h2 {
 color: var(--primary);
@@ -389,8 +447,13 @@ box-shadow: 0 -4px 16px rgba(57,224,122,0.1);
 
 /* MOBILE */
 @media (max-width: 700px) {
+
 .hero h1 {
-font-size: 34px;
+font-size: 40px;
+}
+
+.hero h1 span {
+font-size: 0.9em;
 }
 
 .hero h2 {
@@ -404,6 +467,10 @@ font-size: 13px;
 .nav-logo {
 height: 48px;
 }
+
+.title-line {
+width: 90px;
+}
 }
 </style>
 </head>
@@ -414,6 +481,7 @@ height: 48px;
 <nav class="navbar">
 <div class="nav-left">
 <img src="Logo.png" class="nav-logo">
+
 <div class="location">
 <div class="pin"></div>
 Manassas and Fairfax, VA
@@ -436,21 +504,38 @@ Manassas and Fairfax, VA
 <!-- HERO -->
 <div class="hero">
 <div class="hero-content">
+
 <img src="Logo.png" class="logo">
-<h1>Capital Region Outdoor Services</h1>
+
+<h1>
+Capital Region
+<span>Outdoor Services</span>
+</h1>
+
+<div class="title-line"></div>
+
 <h2>We Mow So You Don’t Have To</h2>
-<p>Lawn Mowing & Junk Removal in Manassas and Fairfax, VA</p>
+
+<p>
+Lawn Mowing & Junk Removal in Manassas and Fairfax, VA
+</p>
+
 <a class="btn" href="#booking">Book Now</a>
+
 </div>
 </div>
 
 <section id="about">
 <h2>Lawn Mowing From $44.99</h2>
-<p>Maintaining your lawn protects property value and keeps your home looking clean and welcoming. We provide lawn mowing services starting from $44.99 depending on lawn size and service needed.</p>
+
+<p>
+Maintaining your lawn protects property value and keeps your home looking clean and welcoming. We provide lawn mowing services starting from $44.99 depending on lawn size and service needed.
+</p>
 </section>
 
 <section id="services">
 <h2>Services</h2>
+
 <div class="services">
 <div class="card">🌱 Lawn Mowing</div>
 <div class="card">✂️ Edging & Trimming</div>
@@ -461,51 +546,70 @@ Manassas and Fairfax, VA
 
 <section id="area">
 <h2>Service Area</h2>
-<p>Serving Manassas, Fairfax, Gainesville, Bristow, and nearby Northern Virginia communities.</p>
+
+<p>
+Serving Manassas, Fairfax, Gainesville, Bristow, and nearby Northern Virginia communities.
+</p>
+
 <img src="Screenshot 2026-05-25 125018.png" alt="Service Area Map" class="map-img">
 </section>
 
 <section id="work">
 <h2>Recent Work</h2>
+
 <div class="gallery">
-<img src="workex.png" alt="Recent lawn work example">
-<img src="workex2.png" alt="Recent outdoor service work example">
+<img src="workex.png">
+<img src="workex2.png">
 </div>
 </section>
 
 <section id="beforeafter">
 <h2>Before & After</h2>
+
 <div class="before-after">
+
 <div class="ba-card">
 <h3>Before</h3>
-<img src="workex4.png" alt="Before lawn cleanup">
+<img src="workex4.png">
 </div>
+
 <div class="ba-card">
 <h3>After</h3>
-<img src="workex3.png" alt="After lawn cleanup">
+<img src="workex3.png">
 </div>
+
 </div>
 </section>
 
 <section id="booking">
 <h2>Book a Service</h2>
+
 <div class="form-box">
 <form action="mailto:samarco560@gmail.com" method="POST" enctype="text/plain">
+
 <input type="text" name="Name" placeholder="Name">
+
 <input type="tel" name="Phone" placeholder="Phone">
+
 <input type="text" name="Address" placeholder="Address">
+
 <textarea name="Job Description" placeholder="Describe job"></textarea>
+
 <button type="submit">Send Request</button>
+
 </form>
 </div>
 </section>
 
 <section id="contact">
 <h2>Contact</h2>
+
 <a class="btn" href="tel:15715138134">Call / Text</a>
 </section>
 
-<a class="floating-call" href="tel:15715138134">📞 Call Now</a>
+<a class="floating-call" href="tel:15715138134">
+📞 Call Now
+</a>
 
 <script>
 function toggleMenu() {
@@ -519,3 +623,4 @@ document.getElementById("mobileMenu").classList.toggle("show");
 
 </body>
 </html>
+
